@@ -85,9 +85,15 @@ public class Detective {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String numStr = br.readLine();
 		int num = Integer.parseInt(numStr);
+		if (num == 2) {
+			System.out.println("探偵");
+			System.out.println("正解です。");
+
+		} else {
+			System.out.println("不正解です。");
+		}
 
 		//ここに記述する
 
 	}
-
 }
