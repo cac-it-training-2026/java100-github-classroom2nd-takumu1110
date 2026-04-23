@@ -61,11 +61,20 @@ public class Explorer {
 		int targetCans = 50;
 		int inputCans = 0;
 
-
 		//ここにfor文を利用した処理を記述
+		for (int i = 0; i < 3; i++) {
+			System.out.println("\n隊長：");
+			System.out.println("あと" + (3 - i) + "回！\n");
+			System.out.print("袋に何個入れますか？＞");
 
+			String numStr = br.readLine();
+			inputCans += Integer.parseInt(numStr);
 
-		if (inputCans >= targetCans) {
+		}
+
+		if (inputCans >= targetCans)
+
+		{
 			System.out.println("\n隊長：");
 			System.out.println("OK!");
 			System.out.println("さあこれで探検ができるぞ！");
