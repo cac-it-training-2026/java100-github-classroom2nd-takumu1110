@@ -47,11 +47,14 @@
 
 package lesson02.challenge08;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Detective {
 
 	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("探偵：");
 		System.out.println("邸を出た後の逃走経路について考えてみましょう。\n");
@@ -67,6 +70,24 @@ public class Detective {
 		System.out.println("2．パターンＢ");
 		System.out.println("3．パターンＣ");
 		System.out.print("数字を選んでここに入力＞");
+		String str = reader.readLine();
+		int num = Integer.parseInt(str);
+		if (num == 1) {
+			System.out.println("探偵：");
+			System.out.println("やっぱり経路が一番可能性が高いよね。");
+
+		} else if (num == 2) {
+			System.out.println("探偵：");
+			System.out.println("経路は可能性は低いかな");
+
+		} else if (num == 3) {
+			System.out.println("探偵：");
+			System.out.println("犬をよく知ってる人ならあるかもね。");
+
+		} else {
+			System.out.println("探偵：");
+			System.out.println("ほかの道はないよ。");
+		}
 
 		//ここに入力処理を入れる
 
