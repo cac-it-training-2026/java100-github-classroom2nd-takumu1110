@@ -94,22 +94,24 @@ public class WarehouseManager {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
-
+		String str = br.readLine();
+		int mozisyu = Integer.parseInt(str);
 
 		//ここに入力処理を記述する。
-
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String stryouso = br.readLine();
+		int yousosuu = Integer.parseInt(stryouso);
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
+		if ((mozisyu < 1 || mozisyu > 3) || (yousosuu < 1 || yousosuu > 3)) {
+			errFlag = true;
 
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -122,14 +124,36 @@ public class WarehouseManager {
 			System.out.println("Yさん：");
 			System.out.println("はい、作成させていただきます。\n");
 
-			char[] charArray = null;
-			String[] strArray = null;
-			int[] intArray = null;
-
+			char[] charArray = { 'a', 'b', 'c' };
+			String[] strArray = { "one", "two", "three" };
+			int[] intArray = { 1, 2, 3 };
 
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
 
+			String mozi;
+
+			if (mozisyu == 1 && yousosuu == 1) {
+				mozi = ("" + charArray[0]);
+
+			} else if (mozisyu == 1 && yousosuu == 2) {
+				mozi = ("" + charArray[1]);
+
+			} else if (mozisyu == 1 && yousosuu == 3) {
+				mozi = ("" + charArray[2]);
+			} else if (mozisyu == 2 && yousosuu == 1) {
+				mozi = (strArray[0]);
+			} else if (mozisyu == 2 && yousosuu == 2) {
+				mozi = ("" + strArray[1]);
+			} else if (mozisyu == 2 && yousosuu == 3) {
+				mozi = ("" + strArray[2]);
+			} else if (mozisyu == 3 && yousosuu == 1) {
+				mozi = ("" + intArray[0]);
+			} else if (mozisyu == 3 && yousosuu == 2) {
+				mozi = ("" + intArray[1]);
+			} else {
+				mozi = ("" + intArray[2]);
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +163,8 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			System.out.println(mozi);
 
 			System.out.println("です。\n");
 

@@ -30,11 +30,15 @@
 
 package lesson03.challenge03;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Explorer {
 
 	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int i = 0;
 
 		System.out.println("隊長：");
 		System.out.println("出発進行！\n");
@@ -43,10 +47,12 @@ public class Explorer {
 		int apsedTime = 0;
 
 		//ここにwhile文を記述する。
+		while (0 < nauticalMile) {
 
 			nauticalMile -= 22;
 			System.out.println("隊長：");
 			System.out.println((apsedTime += 1) + "時間たったよ\n");
+		}
 
 		//ここに  } を記述する。
 

@@ -79,27 +79,45 @@ import java.io.InputStreamReader;
 
 public class Explorer {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("隊長：");
-        System.out.println("トラ発見！\n");
+		System.out.println("隊長：");
+		System.out.println("トラ発見！\n");
 
-        int deepSleepTime = (int) (Math.random() * 10 % 3) + 1;
-        int goTime = 0;
+		int deepSleepTime = (int) (Math.random() * 10 % 3) + 1;
+		int goTime = 0;
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+		//ここにfor文、if文を利用した処理を記述
+		for (int i = 0; i < 3; i++) {
+			if (i == 2) {//3回目のの処理強制敵に１を選択したことに
+				System.out.println("隊長：");
+				System.out.println((i + 1) + "時間経過");
+				System.out.println("もう後がないんで通り抜けますよ。");
+				goTime = (int) (Math.random() * 10 % 3) + 1;
+			} else {//1、2回目の処理1と2で選択可能2を選んだときのみもう一度処理するか聞かれる
+				System.out.println("隊長：");
+				System.out.println((i + 1) + "時間経過");
+				System.out.print("今通り抜けますか？（はい… 1 : いいえ… その他のキー）＞");
+				String str = br.readLine();
+				int num = Integer.parseInt(str);
+				if (num == 1) {
+					goTime = (int) (Math.random() * 10 % 3) + 1;
 
-        //ここにfor文、if文を利用した処理を記述
+				} else {
+					continue;
+				}
 
-
-        if (deepSleepTime == goTime) {
-            System.out.println("\n隊長：");
-            System.out.println("成功！トラはぐっすり寝ています。");
-        } else {
-            System.out.println("\n隊長：");
-            System.out.println("しまったトラがまだ起きてた！");
-        }
-
-    }
+			}
+			if (deepSleepTime == goTime) {
+				System.out.println("\n隊長：");
+				System.out.println("成功！トラはぐっすり寝ています。");
+			} else {
+				System.out.println("\n隊長：");
+				System.out.println("しまったトラがまだ起きてた！");
+			}
+			break;
+		}
+	}
 }

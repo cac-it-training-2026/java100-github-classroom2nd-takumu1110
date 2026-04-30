@@ -52,14 +52,35 @@ public class WarehouseManager {
 	public static void main(String[] args) {
 
 		int[] ABKosanArray1 = new int[5];
+		ABKosanArray1[0] = 1;
+		ABKosanArray1[1] = 2;
+		ABKosanArray1[2] = 3;
+		ABKosanArray1[3] = 4;
+		ABKosanArray1[4] = 5;
 		int[] ABKosanArray2 = new int[5];
-
+		ABKosanArray2[0] = 6;
+		ABKosanArray2[1] = 7;
+		ABKosanArray2[2] = 8;
+		ABKosanArray2[3] = 9;
+		ABKosanArray2[4] = 10;
 
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			int j = (int) (Math.random() * ABKosanArray1.length);
 
+			int temp = ABKosanArray1[i];
+			ABKosanArray1[i] = ABKosanArray1[j];
+			ABKosanArray1[j] = temp;
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			int j = (int) (Math.random() * ABKosanArray2.length);
+
+			int temp = ABKosanArray2[i];
+			ABKosanArray2[i] = ABKosanArray2[j];
+			ABKosanArray2[j] = temp;
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
-
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -88,32 +109,60 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
 
+		int[] kisuu = new int[5];
+		int[] gusu = new int[5];
+		int kisuutan = 0;
+		int gusutan = 0;
 
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			if (ABKosanArray1[i] % 2 != 0) {
+				kisuu[kisuutan++] = ABKosanArray1[i];
+			} else {
+				gusu[gusutan++] = ABKosanArray1[i];
+			}
+		}
+
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			if (ABKosanArray2[i] % 2 != 0) {
+
+				kisuu[kisuutan++] = ABKosanArray2[i];
+			} else {
+				gusu[gusutan++] = ABKosanArray2[i];
+			}
+		}
+
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			ABKosanArray1[i] = kisuu[i];
+		}
+
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			ABKosanArray2[i] = gusu[i];
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");
 		System.out.println("奇数群の荷物の状態は、");
+
 		for (int i = 0; i < ABKosanArray1.length; i++) {
 			System.out.print(ABKosanArray1[i]);
-			if (i != (ABKosanArray1.length - 1)) {
+			if (i != ABKosanArray1.length - 1)
 				System.out.print(",");
-			}
 		}
+
 		System.out.println("\nです。\n");
 
 		System.out.println("偶数群の荷物の状態は、");
-		System.out.println("");
+
 		for (int i = 0; i < ABKosanArray2.length; i++) {
 			System.out.print(ABKosanArray2[i]);
-			if (i != (ABKosanArray2.length - 1)) {
+			if (i != ABKosanArray2.length - 1)
 				System.out.print(",");
-			}
 		}
+
 		System.out.println("\nです。");
 
 	}
+
 }
