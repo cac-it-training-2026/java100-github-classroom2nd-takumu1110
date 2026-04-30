@@ -38,10 +38,20 @@ public class WarehouseManager {
 	public static void main(String[] args) {
 
 		int[] ABKosanArray = new int[5];
-
+		ABKosanArray[0] = 1;
+		ABKosanArray[1] = 2;
+		ABKosanArray[2] = 3;
+		ABKosanArray[3] = 4;
+		ABKosanArray[4] = 5;
 
 		//ここに重複チェックおよび値の代入処理を記述する
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			int j = (int) (Math.random() * ABKosanArray.length);
 
+			int temp = ABKosanArray[i];
+			ABKosanArray[i] = ABKosanArray[j];
+			ABKosanArray[j] = temp;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の入れ替えをお願いします。\n");
@@ -51,20 +61,44 @@ public class WarehouseManager {
 		System.out.println("入れ替え前の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
 			System.out.print(ABKosanArray[i]);
-			if (i != (ABKosanArray.length - 1)) {
+			if (i != (ABKosanArray.length)) {
 				System.out.print(",");
 			}
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに値の入れ替え処理を記述する
-
+		int[] changeIndexArray = new int[4];
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			if (ABKosanArray[i] == 1) {
+				changeIndexArray[0] = i;
+				//changeIndexArray[0]にランダムなABKosanArray[i]が1になったときchangeIndexArray[0] = i;（i=何回目）を代入
+				//やりたいことは、iが1になった時の回数を記録しながらchangeIndexArray[0］にiが1になった時の回数を代入
+			} else if (ABKosanArray[i] == 2) {
+				changeIndexArray[1] = i;
+			} else if (ABKosanArray[i] == 3) {
+				changeIndexArray[2] = i;
+			} else if (ABKosanArray[i] == 4) {
+				changeIndexArray[3] = i;
+			}
+		} //上のプログラミングでABKosanArray[i]からchangeIndexArray[ｘ]に代入している
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			if (changeIndexArray[0] == i) {
+				ABKosanArray[i] = 3;
+				//もともとABKosanArray[i] == 1であったところにABKosanArray[i] == 3を代入
+			} else if (changeIndexArray[1] == i) {
+				ABKosanArray[i] = 4;
+			} else if (changeIndexArray[2] == i) {
+				ABKosanArray[i] = 1;
+			} else if (changeIndexArray[3] == i) {
+				ABKosanArray[i] = 2;
+			}
+		} //上のプログラミングでchangeIndexArray[ｘ]からiに代入している
 
 		System.out.println("入れ替え後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
 			System.out.print(ABKosanArray[i]);
-			if (i != (ABKosanArray.length - 1)) {
+			if (i != (ABKosanArray.length)) {
 				System.out.print(",");
 			}
 		}

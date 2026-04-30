@@ -82,6 +82,7 @@ public class WarehouseManager {
 
 		int clearIndex = (int) (Math.random() * 10) % 5;
 		wonderfulArray[clearIndex] = 0;
+		//ランダムな配列に０が必ず含まれるようにしている
 
 		System.out.println("E主任：");
 		System.out.println("ふしぎなコンテナの件、お願いします。\n");
@@ -99,9 +100,23 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		int targetIndex = 0;
+		int totalPoint = 0;
 
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {
+				targetIndex = i;
+				//０の場所を探している
+			} else {
+				totalPoint += wonderfulArray[i];
+				//０以外にtotalPointをプラス
+
+			}
+		}
+
+		wonderfulArray[targetIndex] = (15 - totalPoint);
+		//０の箇所の配列全体を足したとき１５になる値を挿入
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
